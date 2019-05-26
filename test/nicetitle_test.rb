@@ -109,7 +109,7 @@ class NicetitleTest < Minitest::Test
 
   def test_titlecase_test_cases
     NT_TEST_CASES.each do |test_case|
-      result = Nicetitle::Titlecase.titlecase(test_case[0])
+      result = Nice.title(test_case[0])
       # titlecase() replaces funny white space by regular space which means
       # we need to do the same replacement here before comparing results.
       assert result == test_case[1].gsub("\u{2011}", " ")
@@ -117,79 +117,79 @@ class NicetitleTest < Minitest::Test
   end
 
   def test_empty_strings
-    assert '' == Nicetitle::Titlecase.titlecase('')
-    assert '' == Nicetitle::Titlecase.titlecase(' ')
-    assert '' == Nicetitle::Titlecase.titlecase(" \u{2011} ")
-    assert '' == Nicetitle::Titlecase.titlecase(" \t \t ")
+    assert '' == Nice.title('')
+    assert '' == Nice.title(' ')
+    assert '' == Nice.title(" \u{2011} ")
+    assert '' == Nice.title(" \t \t ")
   end
 
   def test_small_words
     assert "A a Are Two As" ==
-      Nicetitle::Titlecase.titlecase("a a are two as")
+      Nice.title("a a are two as")
 
     assert "Is Is IS Is a Special Case" ==
-      Nicetitle::Titlecase.titlecase("Is is IS Is a special case")
+      Nice.title("Is is IS Is a special case")
 
     assert "He Said: A Small Letter After a Word Ending by a Colon Is Capitalized" ==
-      Nicetitle::Titlecase.titlecase("He said: a small letter after a word ending by a colon is capitalized")
+      Nice.title("He said: a small letter after a word ending by a colon is capitalized")
 
     assert "The Words a, an, as, and at Should Not Be Capitalized" ==
-      Nicetitle::Titlecase.titlecase("The words a, an, as, and at should not be capitalized")
+      Nice.title("The words a, an, as, and at should not be capitalized")
 
     assert "The Words but and by Should Not Be Capitalized" ==
-      Nicetitle::Titlecase.titlecase("The words but and by should not be capitalized")
+      Nice.title("The words but and by should not be capitalized")
 
     assert "The Words en, for, if, in, of, on, or, the, and to Should Not Be Capitalized" ==
-      Nicetitle::Titlecase.titlecase("The words en, for, if, in, of, on, or, the, and to should not be capitalized")
+      Nice.title("The words en, for, if, in, of, on, or, the, and to should not be capitalized")
 
     assert "The Words vs, vs., v, and v. Should Not Be Capitalized" ==
-      Nicetitle::Titlecase.titlecase("The words vs, vs., v, and v. should not be capitalized")
+      Nice.title("The words vs, vs., v, and v. should not be capitalized")
   end
 
   def test_all_caps
     assert "Please Stop Shouting!" ==
-      Nicetitle::Titlecase.titlecase("PLEASE STOP SHOUTING!")
+      Nice.title("PLEASE STOP SHOUTING!")
   end
 
   def test_words_starting_with_special_characters
     assert "___Foo Bar Woo___" ==
-      Nicetitle::Titlecase.titlecase("___foo bar woo___")
+      Nice.title("___foo bar woo___")
     assert "(Foo Bar Woo)" ==
-      Nicetitle::Titlecase.titlecase("(foo bar woo)")
+      Nice.title("(foo bar woo)")
     assert "'Foo Bar Woo'" ==
-      Nicetitle::Titlecase.titlecase("'foo bar woo'")
+      Nice.title("'foo bar woo'")
     assert "\"Foo Bar Woo\"" ==
-      Nicetitle::Titlecase.titlecase("\"foo bar woo\"")
+      Nice.title("\"foo bar woo\"")
   end
 
   def test_words_starting_and_interspersed_with_dashes
     assert "-Foo-Bar-Woo" ==
-      Nicetitle::Titlecase.titlecase("-foo-bar-woo")
+      Nice.title("-foo-bar-woo")
   end
 
   def test_words_interspersed_with_slashes
     assert "Foo/Bar/Woo" ==
-      Nicetitle::Titlecase.titlecase("foo/bar/woo")
+      Nice.title("foo/bar/woo")
   end
 
   def test_words_starting_with_slashes
     assert "/usr/bin" ==
-      Nicetitle::Titlecase.titlecase("/usr/bin")
+      Nice.title("/usr/bin")
   end
 
   def test_words_containing_urls
     assert "The URLs http://example.com and https://example.com Remain Untouched" ==
-      Nicetitle::Titlecase.titlecase("The URLs http://example.com and https://example.com remain untouched")
+      Nice.title("The URLs http://example.com and https://example.com remain untouched")
   end
 
   def test_words_containing_capitals
     assert "Words Such as iPhone, iOS, NBC, and PoC Remain Untouched" ==
-      Nicetitle::Titlecase.titlecase("Words such as iPhone, iOS, NBC, and PoC remain untouched")
+      Nice.title("Words such as iPhone, iOS, NBC, and PoC remain untouched")
   end
 
   def test_words_containing_dots
     assert "Words Such as foo.bar.1001 Remain Untouched" ==
-      Nicetitle::Titlecase.titlecase("Words such as foo.bar.1001 remain untouched")
+      Nice.title("Words such as foo.bar.1001 remain untouched")
   end
 
 end

@@ -17,7 +17,7 @@ The rule set is:
 - Words containing dots are not capitalized.
 - All caps sentences are down-cased before applying above mentioned rules.
 
-Check out the [test cases](https://github.com/evaneykelen/nicetitle/test/nicetitle_test.rb) for a detailed overview.
+Check out the [test cases](https://github.com/evaneykelen/nicetitle/blob/master/test/nicetitle_test.rb) for a detailed overview.
 
 ## Installation
 
@@ -39,7 +39,7 @@ Or install it yourself as:
 
 Calling
 
-`Nicetitle::Titlecase.titlecase('What am I reading/listing/applying these days?')`
+`Nice.title('What am I reading/listing/applying these days?')`
 
 outputs
 
