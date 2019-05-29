@@ -1,3 +1,6 @@
+![Gem Version](https://img.shields.io/gem/v/nicetitle.svg) ![License](https://img.shields.io/github/license/evaneykelen/nicetitle.svg)
+![Last Commit](https://img.shields.io/github/last-commit/evaneykelen/nicetitle.svg)
+
 # Nicetitle
 
 Nicetitle is an implementation of [John Gruber's TitleCase.pl](https://daringfireball.net/2008/08/title_case_update).
